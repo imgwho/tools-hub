@@ -1,0 +1,34 @@
+---
+import * as LucideIcons from "@lucide/astro";
+
+const { tool } = Astro.props;
+const { title, description, icon, tags, url } = tool.data;
+
+const IconComponent = LucideIcons[icon as keyof typeof LucideIcons] || LucideIcons.AppWindow;
+---
+
+<a href={url} class="card card-minimal rounded-2xl p-6 flex flex-col gap-6 hover:bg-zinc-50 transition-all duration-300 border border-zinc-200 shadow-sm hover:shadow-md group" target="_self">
+  <div class="flex items-start justify-between">
+    <div class="bg-zinc-900 text-white w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+      <IconComponent size={28} strokeWidth={2.5} />
+    </div>
+    <div class="flex flex-col items-end gap-1.5">
+      <span class="text-[10px] uppercase tracking-widest font-black text-zinc-400 bg-zinc-50 px-2 py-0.5 rounded-full">直接启动</span>
+      <div class="flex gap-1.5">
+        {tags.map((tag: string) => (
+          <span class="text-[10px] font-bold text-zinc-300">#{tag}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+  
+  <div class="space-y-3">
+    <h3 class="text-xl font-bold text-zinc-900 tracking-tight leading-tight group-hover:text-blue-600 transition-colors">{title}</h3>
+    <p class="text-sm text-zinc-500 leading-relaxed font-medium">{description}</p>
+  </div>
+  
+  <div class="mt-2 flex items-center text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors">
+    立即启动工具
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-1.5 translate-x-0 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </div>
+</a>

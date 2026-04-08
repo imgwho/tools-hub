@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-primary: #18181b; /* Zinc 900 */
+  --color-primary-content: #ffffff;
+}
+
+:root {
+  --font-sans: "Inter", "SF Pro Display", "system-ui", "-apple-system", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #18181b;
+  min-height: 100vh;
+}
+
+/* 直接定义类，避免在 Tailwind v4 中使用 @apply 引用自定义类导致的冲突 */
+.card-minimal {
+  border: 1px solid #e4e4e7; /* Zinc 200 */
+  background-color: #ffffff;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+.card-minimal:hover {
+  background-color: rgba(244, 244, 245, 0.5); /* Zinc 50 with opacity */
+}
+
+.prose {
+  max-width: 70ch;
+  line-height: 1.6;
+}
+
+.prose h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e4e4e7;
+}

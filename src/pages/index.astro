@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ToolCard from '../components/ToolCard.astro';
+
+const allTools = await getCollection('tools');
+---
+
+<BaseLayout title="华子的快捷工具箱">
+  <header class="h-16 border-b border-zinc-100 flex items-center sticky top-0 bg-white/80 backdrop-blur-md z-50">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center gap-3">
+        <span class="font-bold text-lg tracking-tight text-zinc-900">华子的快捷工具箱</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-20">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-end justify-between mb-10 border-b border-zinc-100 pb-6">
+        <div>
+          <h2 class="text-2xl font-bold text-zinc-900 tracking-tight">所有工具</h2>
+          <p class="text-sm text-zinc-400 mt-1 font-medium">当前可用工具 {allTools.length} 个</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {allTools.map(tool => (
+          <ToolCard tool={tool} />
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <footer class="container mx-auto px-6 py-12 text-center border-t border-zinc-50 mt-20">
+    <p class="text-[10px] font-bold text-zinc-300 tracking-widest uppercase">&copy; 2026 华子的快捷工具箱. Built for Efficiency.</p>
+  </footer>
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+
+const { title } = Astro.props;
+---
+
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title || "工具聚合站 | Tools Hub"}</title>
+    <ClientRouter />
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>
