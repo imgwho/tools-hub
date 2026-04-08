@@ -3,7 +3,7 @@ title: "引流助手 v4.1"
 description: "专为引流转化分析设计的 Excel 自动化工具，支持公式自动重建与样式完美保留。"
 icon: "Zap"
 tags: ["引流", "Excel", "自动化"]
-url: "/tools/yinliu-tool.html"
+url: "/tools-hub/tools/yinliu-tool.html"
 type: "html"
 ---
 
